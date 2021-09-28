@@ -1,19 +1,14 @@
 {
-	"beatMap":
-    [
-		{
-			"approachTimeDrum": 1.0,
-			"approachTimeGuitar": 2.0,
-			"numNotesDrum": 3,
-            "numNotesGuitar": 3,
-            "excellentWindow": 0.1,
-            "goodWindow": 0.2,
-            "badWindow": 0.3,
-            "noteTimesDrum": [1.0, 2.0, 3.0],
-            "noteLocationsDrum": [0, 0, 0],
-            "noteTimesGuitar": [],
-            "noteLocationsGuitar": [],
-            "noteTypesGuitar": []
-		}
-	]
+	"approachTimeDrum": 1.0,
+	"approachTimeGuitar": 2.0,
+	"numNotesDrum": 3,
+	"numNotesGuitar": 3,
+	"excellentWindow": 0.1,
+	"goodWindow": 0.2,
+	"badWindow": 0.3,
+	"noteTimesDrum": [1.0, 2.0, 3.0],
+	"noteLocationsDrum": [0, 0, 0],
+	"noteTimesGuitar": [],
+	"noteLocationsGuitar": [],
+	"noteTypesGuitar": []
 }

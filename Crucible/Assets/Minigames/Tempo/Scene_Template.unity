@@ -711,75 +711,6 @@ MonoBehaviour:
   DEBUG_GamemodeToTest: 2
   CurrentGamemode: 0
   MinigameEnded: 0
---- !u!1001 &1330439885
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1416920603046060312, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_Name
-      value: Timer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.1447692
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.19194745
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.68258774
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416920603046060318, guid: 7b5f2594f8b277642a818aaa7a1c2ca1,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7b5f2594f8b277642a818aaa7a1c2ca1, type: 3}
 --- !u!850595691 &1403100441
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -874,49 +805,6 @@ Transform:
   - {fileID: 2005002599}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1469024654
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1469024656}
-  - component: {fileID: 1469024655}
-  m_Layer: 0
-  m_Name: Drum Beatmaps
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1469024655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469024654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddae6dfbac9d549489e6116b3a0fda28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1469024656
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469024654}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472605915
 GameObject:
@@ -1187,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
-  beatMap: {fileID: 1469024655}
+  beatMap: {fileID: 2116476168}
 --- !u!4 &1866274066
 Transform:
   m_ObjectHideFlags: 0
@@ -1432,4 +1320,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1412441044}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2116476167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2116476169}
+  - component: {fileID: 2116476168}
+  m_Layer: 0
+  m_Name: BeatMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2116476168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116476167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddae6dfbac9d549489e6116b3a0fda28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatMapFile: {fileID: 4900000, guid: 7db520ff69ee3454180ac9617ee08a22, type: 3}
+  approachTimeDrum: 0
+  approachTimeGuitar: 0
+  numNotesDrum: 0
+  numNotesGuitar: 0
+  excellentWindow: 0
+  goodWindow: 0
+  badWindow: 0
+  noteTimesDrum: []
+  noteTimesGuitar: []
+  noteLocationsDrum: 
+  noteLocationsGuitar: 
+  noteTypesGuitar: 
+--- !u!4 &2116476169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116476167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7145531, y: -0.48512322, z: -0.00011264541}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

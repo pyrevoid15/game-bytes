@@ -5,18 +5,25 @@ using UnityEngine;
 public class DrumNoteSpawner : MonoBehaviour
 {
     public float startTime;
+    public BeatMap beatMap;
+
+    private int noteNum;
     // Start is called before the first frame update
     void Awake()
     {
         startTime = Time.time;
+        noteNum = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (BeatMap.drumNoteInfo[0].time - (Time.time - startTime) < BeatMap.approachTime) {
+        if (noteNum == beatMap.numNotesDrum) return;
+
+        if (beatMap.noteTimesDrum[noteNum] - (Time.time - startTime) < beatMap.approachTimeDrum) {
             // spawn note
-            BeatMap.drumNoteInfo.RemoveAt(0);
+            Debug.Log("Spawned drum note number " + noteNum.ToString());
+            noteNum++;
         }
     }
 }
