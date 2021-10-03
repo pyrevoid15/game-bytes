@@ -35,8 +35,7 @@ public class BeatMap : MonoBehaviour
         public int[] noteTypesGuitar;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         beatMapBlueprint = JsonUtility.FromJson<BeatMapBlueprint>(beatMapFile.text);
         approachTimeDrum = beatMapBlueprint.approachTimeDrum;
