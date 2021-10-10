@@ -8,15 +8,15 @@ public class DrumManager : MonoBehaviour
     public DrumNote drumNotePrefab;
     public Drum[] drums;
     public SongManager songManager;
+    public float score;
 
     private int noteNum;
 
-
-    public void checkForNoteSpawn()
+    private void checkForNoteSpawn()
     {
         if (noteNum == beatMap.numNotesDrum) return;
 
-        if (beatMap.noteTimesDrum[noteNum] - songManager.getCurrentSongTime() < beatMap.approachTimeDrum)
+        if (beatMap.noteTimesDrum[noteNum] - songManager.getCurrentSongTime() <= beatMap.approachTimeDrum)
         {
             int location = beatMap.noteLocationsDrum[noteNum];
             
@@ -31,6 +31,24 @@ public class DrumManager : MonoBehaviour
 
             // move onto the next note
             noteNum++;
+        }
+    }
+
+    private void checkForInput()
+    {
+        if (MinigameInputHelper.IsButton1Down(2) || MinigameInputHelper.IsButton2Down(2))
+        {
+            float vertical = MinigameInputHelper.GetVerticalAxis(2);
+            float horizontal = MinigameInputHelper.GetHorizontalAxis(2);
+            Debug.Log(vertical);
+            if (vertical == 1f && horizontal == 0f)
+                score += drums[0].hitDrum();
+            else if (vertical == 0f && horizontal == 1f)
+                score += drums[1].hitDrum();
+            else if (vertical == -1f && horizontal == 0f)
+                score += drums[2].hitDrum();
+            else if (vertical == 0 && horizontal == -1f)
+                score += drums[3].hitDrum();
         }
     }
 
@@ -50,5 +68,6 @@ public class DrumManager : MonoBehaviour
     void Update()
     {
         checkForNoteSpawn();
+        checkForInput();
     }
 }

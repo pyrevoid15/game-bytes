@@ -8,18 +8,19 @@ public class SongManager : MonoBehaviour
 
     public float getCurrentSongTime()
     {
-        return Time.time - startTime;
+        return (float)AudioSettings.dspTime - startTime;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        startTime = Time.time;
+        startTime = (float)AudioSettings.dspTime;
+        gameObject.GetComponent<AudioSource>().PlayScheduled(AudioSettings.dspTime + 0.85);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
