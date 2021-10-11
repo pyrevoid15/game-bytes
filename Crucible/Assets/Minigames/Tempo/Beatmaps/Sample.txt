@@ -2,13 +2,13 @@
 	"approachTimeDrum": 0.5,
 	"approachTimeGuitar": 2.0,
 	"numNotesDrum": 25,
-	"numNotesGuitar": 3,
+	"numNotesGuitar": 24,
 	"excellentWindow": 0.07,
 	"goodWindow": 0.1,
 	"badWindow": 0.15,
 	"noteTimesDrum": [2, 2.5, 3, 3.25, 3.5, 3.75, 4, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10, 10.5, 11, 11.5, 11.625, 11.75, 12],
 	"noteLocationsDrum": [3, 3, 3, 0, 1, 0, 2, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0],
-	"noteTimesGuitar": [],
-	"noteLocationsGuitar": [],
-	"noteTypesGuitar": []
+	"noteTimesGuitar": [4, 6, 8, 12, 14, 16, 20, 21.5, 22, 23, 24, 25, 26, 27, 28, 29.5, 30, 31, 32, 33, 34, 34.5, 35, 35.5],
+	"noteLocationsGuitar": [0, 1, 2, 0, 1, 2, 0, 0, 1, 1, 2, 3, 2, 1, 0, 0, 1, 1, 2, 3, 0, 1, 2, 3],
+	"noteTypesGuitar": [1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0]
 }

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drum : MonoBehaviour
+public class Fret : MonoBehaviour
 {
     public float excellentWindow;
     public float goodWindow;
     public float badWindow;
     private SongManager songManager;
 
-    public Queue<DrumNote> drumNotes = new Queue<DrumNote>();
+    public Queue<GuitarNote> guitarNotes = new Queue<GuitarNote>();
 
     public void initialize(float excellentWindow, float goodWindow, float badWindow, SongManager songManager)
     {
@@ -21,29 +21,29 @@ public class Drum : MonoBehaviour
 
     private void checkForDespawnTiming()
     {
-        if (drumNotes.Count == 0)
+        if (guitarNotes.Count == 0)
             return;
 
-        DrumNote note = drumNotes.Peek();
+        GuitarNote note = guitarNotes.Peek();
         if (songManager.getCurrentSongTime() - note.hitTime > badWindow)
         {
-            drumNotes.Dequeue();
+            guitarNotes.Dequeue();
             Destroy(note.gameObject);
         }
     }
 
-    // If drum note is present in queue, removes the drum and returns the score for the note
-    public float hitDrum()
-    {
-        if (drumNotes.Count == 0) return 0f;
+    public float strumFret()
+    {/* TODO:
+        if (guitarNotes.Count == 0) return 0f;
 
         float score = 0f;
-        DrumNote note = drumNotes.Dequeue();
+        GuitarNote note = guitarNotes.Dequeue();
         if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < excellentWindow) score = 3f;
         else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < goodWindow) score = 2f;
         else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < badWindow) score = 1f;
         Destroy(note.gameObject);
-        return score;
+        return score;*/
+        return 0;
     }
 
     // Update is called once per frame
