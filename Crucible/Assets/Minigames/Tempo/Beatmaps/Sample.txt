@@ -1,6 +1,6 @@
 {
 	"approachTimeDrum": 0.5,
-	"approachTimeGuitar": 2.0,
+	"approachTimeGuitar": 1.0,
 	"numNotesDrum": 25,
 	"numNotesGuitar": 24,
 	"excellentWindow": 0.07,

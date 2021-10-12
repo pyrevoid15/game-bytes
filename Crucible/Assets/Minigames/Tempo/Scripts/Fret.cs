@@ -32,8 +32,18 @@ public class Fret : MonoBehaviour
         }
     }
 
-    public float strumFret()
-    {/* TODO:
+    public void selectFret()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(200, 50, 50, 255);
+    }
+
+    public void deselectFret()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 184, 184, 255);
+    }
+
+    public float strumFret(bool chord)
+    {
         if (guitarNotes.Count == 0) return 0f;
 
         float score = 0f;
@@ -41,9 +51,11 @@ public class Fret : MonoBehaviour
         if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < excellentWindow) score = 3f;
         else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < goodWindow) score = 2f;
         else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < badWindow) score = 1f;
+        if (chord != note.isChord)
+            score = 0f;
+
         Destroy(note.gameObject);
-        return score;*/
-        return 0;
+        return score;
     }
 
     // Update is called once per frame

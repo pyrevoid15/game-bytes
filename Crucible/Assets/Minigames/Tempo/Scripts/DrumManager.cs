@@ -40,7 +40,6 @@ public class DrumManager : MonoBehaviour
         {
             float vertical = MinigameInputHelper.GetVerticalAxis(2);
             float horizontal = MinigameInputHelper.GetHorizontalAxis(2);
-            Debug.Log(vertical);
             if (vertical == 1f && horizontal == 0f)
                 score += drums[0].hitDrum();
             else if (vertical == 0f && horizontal == 1f)

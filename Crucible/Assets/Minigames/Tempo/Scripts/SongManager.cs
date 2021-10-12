@@ -15,7 +15,8 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         startTime = (float)AudioSettings.dspTime;
-        gameObject.GetComponent<AudioSource>().PlayScheduled(AudioSettings.dspTime + 0.85);
+        float calibration = 0.75f; // higher value means later song play back (i.e. notes appear "earlier")
+        gameObject.GetComponent<AudioSource>().PlayScheduled(AudioSettings.dspTime + calibration);
     }
 
     // Update is called once per frame

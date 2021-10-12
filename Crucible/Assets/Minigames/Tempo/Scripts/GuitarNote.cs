@@ -5,15 +5,15 @@ using UnityEngine;
 public class GuitarNote : MonoBehaviour
 {
     public float hitTime;
-    public int chordNote;
+    public bool isChord;
     public Vector3 velocity;
 
-    public void initialize(float hitTime, int chordNote, float approachTime)
+    public void initialize(float hitTime, bool isChord, float approachTime)
     {
         this.hitTime = hitTime;
-        this.chordNote = chordNote;
+        this.isChord = isChord;
         velocity = new Vector3(0, 8.5f, 0) / approachTime;
-        if (chordNote == 1)
+        if (isChord)
             gameObject.GetComponent<SpriteRenderer>().color = new Color32(0, 255, 255, 255);
     }
 

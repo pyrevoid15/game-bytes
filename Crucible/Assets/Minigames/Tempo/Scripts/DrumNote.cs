@@ -16,7 +16,7 @@ public class DrumNote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.localScale.x >= 0)
+        if (gameObject.transform.localScale.x >= 0.6f)
             gameObject.transform.localScale -= shrinkRate * new Vector3(1, 1, 0) * Time.deltaTime;
     }
 }
