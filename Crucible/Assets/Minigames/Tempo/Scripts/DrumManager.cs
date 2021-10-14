@@ -9,6 +9,7 @@ public class DrumManager : MonoBehaviour
     public Drum[] drums;
     public SongManager songManager;
     public float score;
+    public int currentDrum;
 
     private int noteNum;
 
@@ -36,18 +37,37 @@ public class DrumManager : MonoBehaviour
 
     private void checkForInput()
     {
+        float vertical = MinigameInputHelper.GetVerticalAxis(2);
+        float horizontal = MinigameInputHelper.GetHorizontalAxis(2);
+
+        int switchTo = -1;
+        if (vertical == 1f && horizontal == 0f)
+            switchTo = 0;
+        else if (vertical == 0f && horizontal == 1f)
+            switchTo = 1;
+        else if (vertical == -1f && horizontal == 0f)
+            switchTo = 2;
+        else if (vertical == 0 && horizontal == -1f)
+            switchTo = 3;
+            
+        if (switchTo == -1)
+        {
+            if (currentDrum != -1)
+                drums[currentDrum].deselectDrum();
+            currentDrum = -1;
+        }
+        else if (switchTo != currentDrum)
+        {
+            if (currentDrum != -1)
+                drums[currentDrum].deselectDrum();
+            currentDrum = switchTo;
+            drums[switchTo].selectDrum();
+        }
+
         if (MinigameInputHelper.IsButton1Down(2) || MinigameInputHelper.IsButton2Down(2))
         {
-            float vertical = MinigameInputHelper.GetVerticalAxis(2);
-            float horizontal = MinigameInputHelper.GetHorizontalAxis(2);
-            if (vertical == 1f && horizontal == 0f)
-                score += drums[0].hitDrum();
-            else if (vertical == 0f && horizontal == 1f)
-                score += drums[1].hitDrum();
-            else if (vertical == -1f && horizontal == 0f)
-                score += drums[2].hitDrum();
-            else if (vertical == 0 && horizontal == -1f)
-                score += drums[3].hitDrum();
+            if (currentDrum != -1)
+                score += drums[currentDrum].hitDrum();
         }
     }
 
@@ -55,6 +75,7 @@ public class DrumManager : MonoBehaviour
     void Start()
     {
         noteNum = 0;
+        currentDrum = 0;
         for (int i = 0; i < drums.Length; i++)
         {
             drums[i].initialize(beatMap.excellentWindow, beatMap.goodWindow, beatMap.badWindow, songManager);
