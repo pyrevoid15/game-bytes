@@ -291,12 +291,12 @@ class Window(PanedWindow):
 
     def enterEditMenu(self):
         self.snootsN_whoosles = {
-            "instr_toggle1" : Radiobutton(self.options, text="Guitar", bg="#0f0f0f", fg="#5f6363",
-                                    activebackground="#0f0f0f", activeforeground="#7f8383",
-                                    variable=self.instrument_type, value="guitar"),
-            "instr_toggle2" : Radiobutton(self.options, text="Drum", bg="#0f0f0f", fg="#5f6363",
-                                    activebackground="#0f0f0f", activeforeground="#7f8383",
-                                    variable=self.instrument_type, value="drum"),
+            #"instr_toggle1" : Radiobutton(self.options, text="Guitar", bg="#0f0f0f", fg="#5f6363",
+            #                        activebackground="#0f0f0f", activeforeground="#7f8383",
+            #                        variable=self.instrument_type, value="guitar"),
+            #"instr_toggle2" : Radiobutton(self.options, text="Drum", bg="#0f0f0f", fg="#5f6363",
+            #                        activebackground="#0f0f0f", activeforeground="#7f8383",
+            #                        variable=self.instrument_type, value="drum"),
             "bad_window" : Spinbox(self.options, from_=0.0, to=1.0, increment=0.01,
                                     bg="#0f0f0f", fg="#5f6363",
                                     activebackground="#0f0f0f"),
@@ -323,8 +323,8 @@ class Window(PanedWindow):
         }
 
         self.labelles = {
-            "instr_toggle" : Label(self.options, text="Instrument:", bg="#0f0f0f", fg="#5f6363",
-                                    activebackground="#0f0f0f", activeforeground="#7f8383"),
+            #"instr_toggle" : Label(self.options, text="Instrument:", bg="#0f0f0f", fg="#5f6363",
+            #                        activebackground="#0f0f0f", activeforeground="#7f8383"),
             "effect_windows" : Label(self.options, text="Windows of Opportunity:", bg="#0f0f0f", fg="#5f6363",
                                     activebackground="#0f0f0f", activeforeground="#7f8383"),
             "bad" : Label(self.options, text="Bad", bg="#0f0f0f", fg="#5f6363",
@@ -345,8 +345,8 @@ class Window(PanedWindow):
                                     activebackground="#0f0f0f", activeforeground="#7f8383")
         }
 
-        self.snootsN_whoosles["instr_toggle1"].place(relx = 0.45, rely=0.03)
-        self.snootsN_whoosles["instr_toggle2"].place(relx = 0.45, rely=0.06)
+        #self.snootsN_whoosles["instr_toggle1"].place(relx = 0.45, rely=0.03)
+        #self.snootsN_whoosles["instr_toggle2"].place(relx = 0.45, rely=0.06)
         self.snootsN_whoosles["bad_window"].place(relx = 0.47, rely=0.14, relwidth=0.3)
         self.snootsN_whoosles["good_window"].place(relx = 0.47, rely=0.17, relwidth=0.3)
         self.snootsN_whoosles["excellent_window"].place(relx = 0.47, rely=0.2, relwidth=0.3)
@@ -356,7 +356,7 @@ class Window(PanedWindow):
         self.snootsN_whoosles["approach_Drum"].place(relx = 0.47, rely=0.39, relwidth=0.3)
         self.snootsN_whoosles["apply"].place(relx = 0.2, rely=0.8, relwidth=0.6)
 
-        self.labelles["instr_toggle"].place(relx=0.05, rely=0.02)
+        #self.labelles["instr_toggle"].place(relx=0.05, rely=0.02)
         self.labelles["effect_windows"].place(relx=0.05, rely=0.1)
         self.labelles["bad"].place(relx=0.05, rely=0.14)
         self.labelles["good"].place(relx=0.05, rely=0.17)
