@@ -100,6 +100,9 @@ class EditorCanvas(Canvas):
 
                 if eve: pass
 
+    def events(self):
+        pass
+
     def update(self):
         self.draw_table()
     
