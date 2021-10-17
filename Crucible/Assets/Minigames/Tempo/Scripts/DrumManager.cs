@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrumManager : MonoBehaviour
 {
@@ -8,10 +9,32 @@ public class DrumManager : MonoBehaviour
     public DrumNote drumNotePrefab;
     public Drum[] drums;
     public SongManager songManager;
-    public float score;
+    public Text scoreText;
+    public FeedbackRenderer feedbackRenderer;
     public int currentDrum;
 
     private int noteNum;
+
+    private void processScore(int score)
+    {
+        if (score == -1)
+            return;
+
+        scoreText.text = (int.Parse(scoreText.text) + score).ToString();
+        if (score == 3)
+        {
+            feedbackRenderer.renderExcellent();
+        } else if (score == 2)
+        {
+            feedbackRenderer.renderGood();
+        } else if (score == 1)
+        {
+            feedbackRenderer.renderBad();
+        } else if (score == 0)
+        {
+            feedbackRenderer.renderMiss();
+        }
+    }
 
     private void checkForNoteSpawn()
     {
@@ -67,7 +90,7 @@ public class DrumManager : MonoBehaviour
         if (MinigameInputHelper.IsButton1Down(2) || MinigameInputHelper.IsButton2Down(2))
         {
             if (currentDrum != -1)
-                score += drums[currentDrum].hitDrum();
+                processScore(drums[currentDrum].hitDrum());
         }
     }
 
@@ -78,7 +101,7 @@ public class DrumManager : MonoBehaviour
         currentDrum = 0;
         for (int i = 0; i < drums.Length; i++)
         {
-            drums[i].initialize(beatMap.excellentWindow, beatMap.goodWindow, beatMap.badWindow, songManager);
+            drums[i].initialize(beatMap.excellentWindow, beatMap.goodWindow, beatMap.badWindow, songManager, feedbackRenderer);
         }
     }
 

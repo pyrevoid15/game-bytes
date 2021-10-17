@@ -8,15 +8,17 @@ public class Drum : MonoBehaviour
     public float goodWindow;
     public float badWindow;
     private SongManager songManager;
+    private FeedbackRenderer feedbackRenderer;
 
     public Queue<DrumNote> drumNotes = new Queue<DrumNote>();
 
-    public void initialize(float excellentWindow, float goodWindow, float badWindow, SongManager songManager)
+    public void initialize(float excellentWindow, float goodWindow, float badWindow, SongManager songManager, FeedbackRenderer feedbackRenderer)
     {
         this.excellentWindow = excellentWindow;
         this.goodWindow = goodWindow;
         this.badWindow = badWindow;
         this.songManager = songManager;
+        this.feedbackRenderer = feedbackRenderer;
     }
 
     private void checkForDespawnTiming()
@@ -29,19 +31,20 @@ public class Drum : MonoBehaviour
         {
             drumNotes.Dequeue();
             Destroy(note.gameObject);
+            feedbackRenderer.renderMiss();
         }
     }
 
     // If drum note is present in queue, removes the drum and returns the score for the note
-    public float hitDrum()
+    public int hitDrum()
     {
-        if (drumNotes.Count == 0) return 0f;
+        if (drumNotes.Count == 0) return -1;
 
-        float score = 0f;
+        int score = 0;
         DrumNote note = drumNotes.Dequeue();
-        if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < excellentWindow) score = 3f;
-        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < goodWindow) score = 2f;
-        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < badWindow) score = 1f;
+        if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < excellentWindow) score = 3;
+        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < goodWindow) score = 2;
+        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < badWindow) score = 1;
         Destroy(note.gameObject);
         return score;
     }
