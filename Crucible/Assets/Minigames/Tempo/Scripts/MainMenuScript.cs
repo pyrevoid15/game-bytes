@@ -19,10 +19,11 @@ public class MainMenuScript : MonoBehaviour
     }
     void Update(){
         // load the level select menu if any button is pressed
-        if(MinigameInputHelper.IsButton1Down(1) || 
-            MinigameInputHelper.IsButton1Down(2) || 
-            MinigameInputHelper.IsButton2Down(1) || 
-            MinigameInputHelper.IsButton2Down(2)){
+        if(MinigameInputHelper.IsButton1Up(1) //|| 
+            // MinigameInputHelper.IsButton1Up(2) || 
+            // MinigameInputHelper.IsButton2Up(1) || 
+            // MinigameInputHelper.IsButton2Up(2)
+            ){
                 if(selected == 0){
                     LoadLevelMenu();
                 }
