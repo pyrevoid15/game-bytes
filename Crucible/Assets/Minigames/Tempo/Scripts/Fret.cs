@@ -8,15 +8,17 @@ public class Fret : MonoBehaviour
     public float goodWindow;
     public float badWindow;
     private SongManager songManager;
+    private FeedbackRenderer feedbackRenderer;
 
     public Queue<GuitarNote> guitarNotes = new Queue<GuitarNote>();
 
-    public void initialize(float excellentWindow, float goodWindow, float badWindow, SongManager songManager)
+    public void initialize(float excellentWindow, float goodWindow, float badWindow, SongManager songManager, FeedbackRenderer feedbackRenderer)
     {
         this.excellentWindow = excellentWindow;
         this.goodWindow = goodWindow;
         this.badWindow = badWindow;
         this.songManager = songManager;
+        this.feedbackRenderer = feedbackRenderer;
     }
 
     private void checkForDespawnTiming()
@@ -29,6 +31,7 @@ public class Fret : MonoBehaviour
         {
             guitarNotes.Dequeue();
             Destroy(note.gameObject);
+            feedbackRenderer.renderMiss();
         }
     }
 
@@ -42,17 +45,17 @@ public class Fret : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 184, 184, 255);
     }
 
-    public float strumFret(bool chord)
+    public int strumFret(bool chord)
     {
-        if (guitarNotes.Count == 0) return 0f;
+        if (guitarNotes.Count == 0) return -1;
 
-        float score = 0f;
+        int score = 0;
         GuitarNote note = guitarNotes.Dequeue();
-        if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < excellentWindow) score = 3f;
-        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < goodWindow) score = 2f;
-        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < badWindow) score = 1f;
+        if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < excellentWindow) score = 3;
+        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < goodWindow) score = 2;
+        else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < badWindow) score = 1;
         if (chord != note.isChord)
-            score = 0f;
+            score = 0;
 
         Destroy(note.gameObject);
         return score;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GuitarManager : MonoBehaviour
 {
@@ -8,13 +9,38 @@ public class GuitarManager : MonoBehaviour
     public GuitarNote guitarNotePrefab;
     public Fret[] frets;
     public SongManager songManager;
-    public float score;
+    public Text scoreText;
+    public FeedbackRenderer feedbackRenderer;
     public int currentFret;
 
     private int noteNum;
     private bool recentlyMoved;
     private bool recentlyPressed;
     private float lastBtnPress;
+
+    private void processScore(int score)
+    {
+        if (score == -1)
+            return;
+
+        scoreText.text = (int.Parse(scoreText.text) + score).ToString();
+        if (score == 3)
+        {
+            feedbackRenderer.renderExcellent();
+        }
+        else if (score == 2)
+        {
+            feedbackRenderer.renderGood();
+        }
+        else if (score == 1)
+        {
+            feedbackRenderer.renderBad();
+        }
+        else if (score == 0)
+        {
+            feedbackRenderer.renderMiss();
+        }
+    }
 
     private void checkForNoteSpawn()
     {
@@ -64,7 +90,7 @@ public class GuitarManager : MonoBehaviour
         if (recentlyPressed && (Time.time - lastBtnPress >= 0.05f))
         {
             // double press timer elapsed, single press is registered
-            score += frets[currentFret].strumFret(false);
+            processScore(frets[currentFret].strumFret(false));
             recentlyPressed = false;
         }
 
@@ -76,7 +102,7 @@ public class GuitarManager : MonoBehaviour
             // both buttons pressed at exact same frame
             if (button1 && button2)
             {
-                score += frets[currentFret].strumFret(true);
+                processScore(frets[currentFret].strumFret(true));
             }
 
             // if no recent button press, set up double press timer
@@ -89,7 +115,7 @@ public class GuitarManager : MonoBehaviour
             // there was recent button press, and another press came within double press timer
             else if (Time.time - lastBtnPress < 0.05f)
             {
-                score += frets[currentFret].strumFret(true);
+                processScore(frets[currentFret].strumFret(true));
                 recentlyPressed = false;
             }
         }
@@ -103,7 +129,7 @@ public class GuitarManager : MonoBehaviour
         lastBtnPress = 0;
         for (int i = 0; i < frets.Length; i++)
         {
-            frets[i].initialize(beatMap.excellentWindow, beatMap.goodWindow, beatMap.badWindow, songManager);
+            frets[i].initialize(beatMap.excellentWindow, beatMap.goodWindow, beatMap.badWindow, songManager, feedbackRenderer);
         }
         frets[0].selectFret();
     }
