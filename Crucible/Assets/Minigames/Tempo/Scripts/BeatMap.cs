@@ -8,8 +8,8 @@ public class BeatMap : MonoBehaviour
     private BeatMapBlueprint beatMapBlueprint;
     public float approachTimeDrum;
     public float approachTimeGuitar;
-    public float numNotesDrum;
-    public float numNotesGuitar;
+    public int numNotesDrum;
+    public int numNotesGuitar;
     public float excellentWindow;
     public float goodWindow;
     public float badWindow;
@@ -18,13 +18,14 @@ public class BeatMap : MonoBehaviour
     public int[] noteLocationsDrum;
     public int[] noteLocationsGuitar;
     public int[] noteTypesGuitar;
+    public float songTime;
 
     private class BeatMapBlueprint
     {
         public float approachTimeDrum;
         public float approachTimeGuitar;
-        public float numNotesDrum;
-        public float numNotesGuitar;
+        public int numNotesDrum;
+        public int numNotesGuitar;
         public float excellentWindow;
         public float goodWindow;
         public float badWindow;
@@ -33,6 +34,7 @@ public class BeatMap : MonoBehaviour
         public int[] noteLocationsDrum;
         public int[] noteLocationsGuitar;
         public int[] noteTypesGuitar;
+        public float songTime;
     }
 
     void Awake()
@@ -50,6 +52,7 @@ public class BeatMap : MonoBehaviour
         noteLocationsDrum = beatMapBlueprint.noteLocationsDrum;
         noteLocationsGuitar = beatMapBlueprint.noteLocationsGuitar;
         noteTypesGuitar = beatMapBlueprint.noteTypesGuitar;
+        songTime = beatMapBlueprint.songTime;
 }
 
     // Update is called once per frame
