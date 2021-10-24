@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Drum : MonoBehaviour
 {
+    public Sprite regular;
+    public Sprite pressed;
     public float excellentWindow;
     public float goodWindow;
     public float badWindow;
@@ -51,12 +53,12 @@ public class Drum : MonoBehaviour
 
     public void selectDrum()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color32(50, 50, 200, 255);
+        gameObject.GetComponent<SpriteRenderer>().sprite = pressed;
     }
 
     public void deselectDrum()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color32(181, 201, 219, 255);
+        gameObject.GetComponent<SpriteRenderer>().sprite = regular;
     }
 
     // Update is called once per frame

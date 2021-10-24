@@ -66,13 +66,21 @@ public class DrumManager : MonoBehaviour
         int switchTo = -1;
         if (vertical == 1f && horizontal == 0f)
             switchTo = 0;
-        else if (vertical == 0f && horizontal == 1f)
+        else if (vertical == 1f && horizontal == 1f)
             switchTo = 1;
-        else if (vertical == -1f && horizontal == 0f)
+        else if (vertical == 0f && horizontal == 1f)
             switchTo = 2;
-        else if (vertical == 0 && horizontal == -1f)
+        else if (vertical == -1f && horizontal == 1f)
             switchTo = 3;
-            
+        else if (vertical == -1f && horizontal == 0f)
+            switchTo = 4;
+        else if (vertical == -1f && horizontal == -1f)
+            switchTo = 5;
+        else if (vertical == 0f && horizontal == -1f)
+            switchTo = 6;
+        else if (vertical == 1f && horizontal == -1f)
+            switchTo = 7;
+
         if (switchTo == -1)
         {
             if (currentDrum != -1)
