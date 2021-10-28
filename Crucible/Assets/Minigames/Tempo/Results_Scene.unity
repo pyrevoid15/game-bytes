@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings: {fileID: 11400000, guid: 54aae246c8e29834bbd5810fe72c6980, type: 2}
-  DurationSeconds: 60
+  DurationSeconds: 1e+12
   WinOnTimeEnd: 0
   TimerPaused: 0
   TimerText: {fileID: 0}

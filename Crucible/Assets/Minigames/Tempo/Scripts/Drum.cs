@@ -34,6 +34,7 @@ public class Drum : MonoBehaviour
             drumNotes.Dequeue();
             Destroy(note.gameObject);
             feedbackRenderer.renderMiss();
+            Score.player2Misses++;
         }
     }
 

@@ -17,28 +17,28 @@ public class GetScores : MonoBehaviour
     void Start()
     {
         // getting player1's scores
-        float total1 = Score.player1Score;
-        float max1 = Score.player1MaxScore;
+        int total1 = Score.player1Score;
+        int max1 = Score.player1MaxScore;
 
-        float percent = ((total1/max1)*100);
+        float percent = (float)total1/max1*100;
         percent = Mathf.Round(percent);
 
         player1.text = percent.ToString() + "%";
         string miss = " misses";
-        if(max1-total1 == 1) miss = " miss";
-        player1_det.text = (max1-total1).ToString() + miss;
+        if(Score.player1Misses == 1) miss = " miss";
+        player1_det.text = Score.player1Misses.ToString() + miss;
 
         // getting player 2's scores
-        float total2 = Score.player2Score;
-        float max2 = Score.player2MaxScore;
+        int total2 = Score.player2Score;
+        int max2 = Score.player2MaxScore;
 
-        float percent2 = ((total2/max2)*100);
+        float percent2 = (float)total2/max2*100;
         percent2 = Mathf.Round(percent2);
 
         player2.text = percent2.ToString() + "%";
         string miss2 = " misses";
-        if(max1-total1 == 1) miss2 = " miss";
-        player2_det.text = (max2-total2).ToString() + miss2;
+        if(Score.player2Misses == 1) miss2 = " miss";
+        player2_det.text = Score.player2Misses.ToString() + miss2;
 
 
         float group_total = total1 + total2;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SongManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class SongManager : MonoBehaviour
         Score.player2Score = int.Parse(drumScore.text);
         Score.player1MaxScore = beatMap.numNotesGuitar * 3;
         Score.player2MaxScore = beatMap.numNotesDrum * 3;
-        Debug.Log("SCENE ENDED");
+        SceneManager.LoadScene("Results_Scene");
     }
 
     // Start is called before the first frame update

@@ -33,6 +33,7 @@ public class DrumManager : MonoBehaviour
         } else if (score == 0)
         {
             feedbackRenderer.renderMiss();
+            Score.player2Misses++;
         }
     }
 

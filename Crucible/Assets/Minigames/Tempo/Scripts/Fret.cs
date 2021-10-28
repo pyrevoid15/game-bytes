@@ -32,6 +32,7 @@ public class Fret : MonoBehaviour
             guitarNotes.Dequeue();
             Destroy(note.gameObject);
             feedbackRenderer.renderMiss();
+            Score.player1Misses++;
         }
     }
 
