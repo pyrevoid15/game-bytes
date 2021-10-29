@@ -40,10 +40,7 @@ public class GetScores : MonoBehaviour
         if(Score.player2Misses == 1) miss2 = " miss";
         player2_det.text = Score.player2Misses.ToString() + miss2;
 
-
-        float group_total = total1 + total2;
-        float group_max = max1 + max2;
-        float percent3 = Mathf.Round((group_total/group_max)*100);
+        float percent3 = Mathf.Round((percent + percent2) / 2);
 
         total_score.text = percent3.ToString() + "%";
         
