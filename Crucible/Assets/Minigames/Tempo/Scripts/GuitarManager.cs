@@ -39,6 +39,7 @@ public class GuitarManager : MonoBehaviour
         else if (score == 0)
         {
             feedbackRenderer.renderMiss();
+            Score.player1Misses++;
         }
     }
 
