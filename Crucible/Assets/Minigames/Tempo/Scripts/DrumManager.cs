@@ -20,7 +20,8 @@ public class DrumManager : MonoBehaviour
         if (score == -1)
             return;
 
-        scoreText.text = (int.Parse(scoreText.text) + score).ToString();
+        Score.player2Score += score;
+        scoreText.text = (Mathf.Round(10000f * Score.player2Score / Score.player2MaxScore) / 100).ToString();
         if (score == 3)
         {
             feedbackRenderer.renderExcellent();

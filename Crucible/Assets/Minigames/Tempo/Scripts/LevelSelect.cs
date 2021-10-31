@@ -29,12 +29,22 @@ public int selected = 0; // index of selected button (0 start, 1 settings)
             MinigameInputHelper.IsButton1Up(2) || 
             MinigameInputHelper.IsButton2Up(1) || 
             MinigameInputHelper.IsButton2Up(2)){
-                
-                if(selected == 3){
-                    LoadMainMenu();
-                } else {
-                    PlayGame();
-                }
+            if(selected == 3){
+                LoadMainMenu();
+                return;
+            } 
+
+            if(selected == 0) {
+                LevelState.beatMapFilename = "Tempo/Beatmaps/Easy";
+                LevelState.songFilename = "Tempo/Songs/Easy";
+            } else if (selected == 1) {
+                LevelState.beatMapFilename = "Tempo/Beatmaps/Intermediate";
+                LevelState.songFilename = "Tempo/Songs/Intermediate";
+            } else if (selected == 2) {
+                LevelState.beatMapFilename = "Tempo/Beatmaps/Intermediate";
+                LevelState.songFilename = "Tempo/Songs/Intermediate";
+            }
+            PlayGame();
         }
 
 

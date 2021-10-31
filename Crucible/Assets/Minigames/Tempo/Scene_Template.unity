@@ -180,7 +180,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 234aa80ee94611c489370477977828c8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1ac443c3939bc3445875172eb7c30b62, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2663,7 +2663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddae6dfbac9d549489e6116b3a0fda28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatMapFile: {fileID: 4900000, guid: 7db520ff69ee3454180ac9617ee08a22, type: 3}
+  beatMapFile: {fileID: 4900000, guid: 91640e7d56df3b14fb7db97eb6224fe9, type: 3}
   BPM: 0
   songTime: 0
   approachTimeDrum: 0

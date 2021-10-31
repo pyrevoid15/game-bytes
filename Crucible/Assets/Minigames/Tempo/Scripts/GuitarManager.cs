@@ -23,7 +23,8 @@ public class GuitarManager : MonoBehaviour
         if (score == -1)
             return;
 
-        scoreText.text = (int.Parse(scoreText.text) + score).ToString();
+        Score.player1Score += score;
+        scoreText.text = (Mathf.Round(10000f * Score.player1Score / Score.player1MaxScore) / 100).ToString();
         if (score == 3)
         {
             feedbackRenderer.renderExcellent();

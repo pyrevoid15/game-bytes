@@ -41,6 +41,7 @@ public class BeatMap : MonoBehaviour
 
     private void initialize()
     {
+        beatMapFile = Resources.Load<TextAsset>(LevelState.beatMapFilename);
         beatMapBlueprint = JsonUtility.FromJson<BeatMapBlueprint>(beatMapFile.text);
         BPM = beatMapBlueprint.BPM;
         songTime = beatMapBlueprint.songTime;

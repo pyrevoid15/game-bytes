@@ -19,10 +19,6 @@ public class SongManager : MonoBehaviour
 
     private void endScene()
     {
-        Score.player1Score = int.Parse(guitarScore.text);
-        Score.player2Score = int.Parse(drumScore.text);
-        Score.player1MaxScore = beatMap.numNotesGuitar * 3;
-        Score.player2MaxScore = beatMap.numNotesDrum * 3;
         SceneManager.LoadScene("Results_Scene");
     }
 
@@ -31,8 +27,13 @@ public class SongManager : MonoBehaviour
     {
         startTime = (float)AudioSettings.dspTime;
         endTime = beatMap.songTime;
-        float calibration = 0.75f; // higher value means later song play back (i.e. notes appear "earlier")
-        gameObject.GetComponent<AudioSource>().PlayScheduled(AudioSettings.dspTime + calibration);
+        float calibration = 0.35f; // higher value means later song play back (i.e. notes appear "earlier")
+        AudioSource song = gameObject.GetComponent<AudioSource>();
+        song.clip = Resources.Load<AudioClip>(LevelState.songFilename);
+        song.PlayScheduled(AudioSettings.dspTime + calibration);
+
+        Score.player1MaxScore = beatMap.numNotesGuitar * 3;
+        Score.player2MaxScore = beatMap.numNotesDrum * 3;
     }
 
     // Update is called once per frame
