@@ -11,10 +11,10 @@ public class SettingsManager : MonoBehaviour
     public float cooldown = 0.28f;
     public GameObject applyButtn;
     public GameObject returnButtn;
-    public GameObject[] volumeSlider = new GameObject[3];
+    public GameObject[] volumeSliderTool = new GameObject[3];
     public int blnorpble = 0;
-    public GameObject[] calibrator = new GameObject[3];
-    GameObject eventCap;
+    public GameObject[] calibratorTool = new GameObject[3];
+    public GameObject eventCap;
 
     public int masterVolume = 60;
     public static int volume = 60;
@@ -26,17 +26,17 @@ public class SettingsManager : MonoBehaviour
     {
         applyButtn = GameObject.Find("Apply");    
         returnButtn = GameObject.Find("Return");
-        volumeSlider[0] = null;
-        volumeSlider[1] = null;
-        volumeSlider[2] = null;
+        volumeSliderTool[0] = null;
+        volumeSliderTool[1] = null;
+        volumeSliderTool[2] = null;
    
-        volumeSlider[0] = GameObject.Find("volumeSlider0");    
-        volumeSlider[1] = GameObject.Find("volumeSliderNote");    
-        volumeSlider[2] = GameObject.Find("volumeSlider1");
-        print(volumeSlider);
-        calibrator[0] = GameObject.Find("calibrator0");
-        calibrator[1] = GameObject.Find("calibratorNote");
-        calibrator[2] = GameObject.Find("calibrator1");
+        volumeSliderTool[0] = GameObject.Find("volumeSlider0");    
+        volumeSliderTool[1] = GameObject.Find("volumeSliderNote");    
+        volumeSliderTool[2] = GameObject.Find("volumeSlider1");
+        print(volumeSliderTool);
+        calibratorTool[0] = GameObject.Find("calibrator0");
+        calibratorTool[1] = GameObject.Find("calibratorNote");
+        calibratorTool[2] = GameObject.Find("calibrator1");
         eventCap = GameObject.Find("EventSystem");
     }
 
@@ -90,9 +90,9 @@ public class SettingsManager : MonoBehaviour
         else
         {
             joystickx1 = MinigameInputHelper.GetHorizontalAxis(1);
-            joystickx2 = MinigameInputHelper.GetHorizontalAxis(2);
+            joystickx2 = 0;
             joysticky1 = MinigameInputHelper.GetVerticalAxis(1);
-            joysticky2 = MinigameInputHelper.GetVerticalAxis(2);
+            joysticky2 = 0;
 
             if (joysticky1 > 0 || joysticky2 > 0) //scroll up
             {
@@ -130,11 +130,11 @@ public class SettingsManager : MonoBehaviour
         {
             if (selected == 0)
             {
-                volumeSlider[1].GetComponent<Button>().Select();
+                volumeSliderTool[1].GetComponent<Button>().Select();
             }
             else if (selected == 1)
             {
-                calibrator[1].GetComponent<Button>().Select();
+                calibratorTool[1].GetComponent<Button>().Select();
             }
             else if (selected == 2)
             {
@@ -151,22 +151,22 @@ public class SettingsManager : MonoBehaviour
             {
                 if (selected == 0)
                 {
-                    volumeSlider[0].GetComponent<Button>().Select();
+                    volumeSliderTool[0].GetComponent<Button>().Select();
                 }
                 else
                 {
-                    volumeSlider[2].GetComponent<Button>().Select();
+                    volumeSliderTool[2].GetComponent<Button>().Select();
                 }
             }
             else
             {
                 if (selected == 0)
                 {
-                    calibrator[0].GetComponent<Button>().Select();
+                    calibratorTool[0].GetComponent<Button>().Select();
                 }
                 else
                 {
-                    calibrator[2].GetComponent<Button>().Select();
+                    calibratorTool[2].GetComponent<Button>().Select();
                 }
             }
         }
