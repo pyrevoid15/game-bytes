@@ -11,6 +11,7 @@ public class DrumManager : MonoBehaviour
     public SongManager songManager;
     public Text scoreText;
     public FeedbackRenderer feedbackRenderer;
+    public FrogDrummer frogDrummer;
     public int currentDrum;
 
     private int noteNum;
@@ -87,7 +88,10 @@ public class DrumManager : MonoBehaviour
         if (switchTo == -1)
         {
             if (currentDrum != -1)
+            {
                 drums[currentDrum].deselectDrum();
+                frogDrummer.selectSprite(8);
+            }
             currentDrum = -1;
         }
         else if (switchTo != currentDrum)
@@ -96,6 +100,7 @@ public class DrumManager : MonoBehaviour
                 drums[currentDrum].deselectDrum();
             currentDrum = switchTo;
             drums[switchTo].selectDrum();
+            frogDrummer.selectSprite(switchTo);
         }
 
         if (MinigameInputHelper.IsButton1Down(2) || MinigameInputHelper.IsButton2Down(2))

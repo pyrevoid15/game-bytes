@@ -11,11 +11,13 @@ public class SongManager : MonoBehaviour
     public Text drumScore;
     private float startTime;
     private float endTime;
+    private float initialPause;
+    private float calibration;
     private AudioSource song;
 
     public float getCurrentSongTime()
     {
-        return (float)AudioSettings.dspTime - startTime - 3;
+        return (float)AudioSettings.dspTime - startTime;
     }
 
     private void endScene()
@@ -26,12 +28,13 @@ public class SongManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startTime = (float)AudioSettings.dspTime;
+        initialPause = 3f;
+        startTime = (float)AudioSettings.dspTime + initialPause;
         endTime = beatMap.songTime;
-        float calibration = -0.5f; // higher value means later song play back (i.e. notes appear "earlier")
+        calibration = -0.2f; // higher value means later song play back (i.e. notes appear "earlier")
         song = gameObject.GetComponent<AudioSource>();
         song.clip = Resources.Load<AudioClip>(LevelState.songFilename);
-        song.PlayScheduled(AudioSettings.dspTime + calibration + 3);
+        song.PlayScheduled(startTime + calibration);
 
         Score.player1MaxScore = beatMap.numNotesGuitar * 3;
         Score.player2MaxScore = beatMap.numNotesDrum * 3;

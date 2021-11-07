@@ -5,55 +5,55 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Core/Scenes/MainMenu.unity
     guid: 542a8d19925e2d941bc4e2937004b8bb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Core/Scenes/MinigameLauncher.unity
     guid: 44720dd75ae23bb448cfcb51179a6382
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/MeteorMasher/Scene_MeteorMasher.unity
     guid: 7894d01622d3e8544b617f353661c4e9
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Core/Scenes/EndScreen.unity
     guid: 0b4d80be7927bbd49ad4e028d02a7719
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/Shotpot/Scene_Shotpot.unity
     guid: 2c6974ac6aca6ea4f9aee7d98384362e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/Test/Scene_TestMinigame.unity
     guid: fb03df26f001bfa43a4168ffa241461d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/Tetris_2p/Tetris Scene.unity
     guid: d92ce7b0c8f6f43249f3490cc28cfea5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Core/Scenes/Credits.unity
     guid: ea400e475245545768f23841ce73f270
-  - enabled: 1
+  - enabled: 0
     path: Assets/Core/Meta Games/Rock, Paper, Scissors, Nuke/RockPaperScissorsNuke.unity
     guid: f54537ccc63884c89b2925d06dda2924
-  - enabled: 1
+  - enabled: 0
     path: Assets/Core/Meta Games/Select Minigame/SelectMinigame.unity
     guid: 9c6865ee69bc544ae83ac34d51fbb1d7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/Sporshmallow/Scenes/GamePlay.unity
     guid: 2390368bbfedc4333a45b515c5018e4e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/MarbleRoller/Scene_Platformer.unity
     guid: 3a9d597f14280324891435720ad90af8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/FruitFight/FruitScene.unity
     guid: d56df2ebd06f4cf47b4880791d287b35
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/Bombastic/Bombastic Scene.unity
     guid: 9eaacdca0a8e0df478fb1dfa252c8486
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/PinballPong/Scene_Pinball_Pong.unity
     guid: 87d920a3cf97c4353bdd83024f6ce5c5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Minigames/StarFall/StarFall.unity
     guid: 22749aae6fa0e3546b598bca28a35d7c
   - enabled: 1

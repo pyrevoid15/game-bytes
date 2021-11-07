@@ -11,6 +11,7 @@ public class GuitarManager : MonoBehaviour
     public SongManager songManager;
     public Text scoreText;
     public FeedbackRenderer feedbackRenderer;
+    public Animator jumpingFrogs;
     public int currentFret;
 
     private int noteNum;
@@ -22,6 +23,8 @@ public class GuitarManager : MonoBehaviour
     {
         if (score == -1)
             return;
+
+        jumpingFrogs.Play("Jump");
 
         Score.player1Score += score;
         scoreText.text = (Mathf.Round(10000f * Score.player1Score / Score.player1MaxScore) / 100).ToString();
