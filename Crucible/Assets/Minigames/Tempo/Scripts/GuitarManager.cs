@@ -53,8 +53,8 @@ public class GuitarManager : MonoBehaviour
             int location = beatMap.noteLocationsGuitar[noteNum];
 
             // spawn a note
-            GuitarNote guitarNote = Instantiate(guitarNotePrefab, frets[location].transform.position - new Vector3(0, 8.5f, 0), Quaternion.identity);
-
+            //GuitarNote guitarNote = Instantiate(guitarNotePrefab, frets[location].transform.position - new Vector3(0, 8.5f, 0), Quaternion.identity);
+            GuitarNote guitarNote = ObjectPooler.Instance.SpawnFromPool("GuitarNote", frets[location].transform.position - new Vector3(0, 8.5f, 0), Quaternion.identity).GetComponent<GuitarNote>();
             // initialize note hit time and velocity
             guitarNote.initialize(beatMap.noteTimesGuitar[noteNum], beatMap.noteTypesGuitar[noteNum] == 1, beatMap.approachTimeGuitar);
 

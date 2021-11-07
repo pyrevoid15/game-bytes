@@ -32,7 +32,8 @@ public class Drum : MonoBehaviour
         if (songManager.getCurrentSongTime() - note.hitTime > badWindow)
         {
             drumNotes.Dequeue();
-            Destroy(note.gameObject);
+            //Destroy(note.gameObject);
+            note.gameObject.SetActive(false);
             feedbackRenderer.renderMiss();
             Score.player2Misses++;
         }
@@ -48,7 +49,8 @@ public class Drum : MonoBehaviour
         if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < excellentWindow) score = 3;
         else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < goodWindow) score = 2;
         else if (Mathf.Abs(songManager.getCurrentSongTime() - note.hitTime) < badWindow) score = 1;
-        Destroy(note.gameObject);
+        //Destroy(note.gameObject);
+        note.gameObject.SetActive(false);
         return score;
     }
 

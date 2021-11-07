@@ -30,7 +30,8 @@ public class Fret : MonoBehaviour
         if (songManager.getCurrentSongTime() - note.hitTime > badWindow)
         {
             guitarNotes.Dequeue();
-            Destroy(note.gameObject);
+            //Destroy(note.gameObject);
+            note.gameObject.SetActive(false);
             feedbackRenderer.renderMiss();
             Score.player1Misses++;
         }
@@ -58,7 +59,8 @@ public class Fret : MonoBehaviour
         if (chord != note.isChord)
             score = 0;
 
-        Destroy(note.gameObject);
+        //Destroy(note.gameObject);
+        note.gameObject.SetActive(false);
         return score;
     }
 

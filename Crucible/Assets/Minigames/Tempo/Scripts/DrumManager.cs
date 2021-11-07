@@ -45,9 +45,10 @@ public class DrumManager : MonoBehaviour
         if (beatMap.noteTimesDrum[noteNum] - songManager.getCurrentSongTime() <= beatMap.approachTimeDrum)
         {
             int location = beatMap.noteLocationsDrum[noteNum];
-            
+
             // spawn a note
-            DrumNote drumNote = Instantiate(drumNotePrefab, drums[location].transform.position, Quaternion.identity);
+            //DrumNote drumNote = Instantiate(drumNotePrefab, drums[location].transform.position, Quaternion.identity);
+            DrumNote drumNote = ObjectPooler.Instance.SpawnFromPool("DrumNote", drums[location].transform.position, Quaternion.identity).GetComponent<DrumNote>();
 
             // initialize note hit time and shrink rate
             drumNote.initialize(beatMap.noteTimesDrum[noteNum], beatMap.approachTimeDrum);

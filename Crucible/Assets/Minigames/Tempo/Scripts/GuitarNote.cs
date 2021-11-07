@@ -8,6 +8,11 @@ public class GuitarNote : MonoBehaviour
     public bool isChord;
     public Vector3 velocity;
 
+    public void OnEnable()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+    }
+
     public void initialize(float hitTime, bool isChord, float approachTime)
     {
         this.hitTime = hitTime;

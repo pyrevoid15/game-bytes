@@ -7,6 +7,11 @@ public class DrumNote : MonoBehaviour
     public float hitTime;
     public float shrinkRate;
 
+    public void OnEnable()
+    {
+        this.transform.localScale = new Vector3(2, 2, 1);
+    }
+
     public void initialize(float hitTime, float approachTime)
     {
         this.hitTime = hitTime;

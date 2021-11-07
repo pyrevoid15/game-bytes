@@ -6,8 +6,8 @@
 	"excellentWindow": 0.07,
 	"goodWindow": 0.1,
 	"badWindow": 0.15,
-	"guitarOffset": 4.0,
-	"drumOffset": 2.0,
+	"guitarOffset": 3.0,
+	"drumOffset": 1.0,
 	"noteLengthsDrum":
 		[1, 1, 0.5, 0.5, 0.5, 0.5,
 		 1, 1, 1, 1, 

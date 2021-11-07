@@ -41,8 +41,8 @@ public int selected = 0; // index of selected button (0 start, 1 settings)
                 LevelState.beatMapFilename = "Tempo/Beatmaps/Intermediate";
                 LevelState.songFilename = "Tempo/Songs/Intermediate";
             } else if (selected == 2) {
-                LevelState.beatMapFilename = "Tempo/Beatmaps/Intermediate";
-                LevelState.songFilename = "Tempo/Songs/Intermediate";
+                LevelState.beatMapFilename = "Tempo/Beatmaps/Click Track";
+                LevelState.songFilename = "Tempo/Songs/Click Track";
             }
             PlayGame();
         }

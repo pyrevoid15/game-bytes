@@ -57,24 +57,31 @@ public class BeatMap : MonoBehaviour
         noteTypesGuitar = beatMapBlueprint.noteTypesGuitar;
 
         // create noteTimesGuitar
-        noteTimesGuitar = new float[numNotesGuitar];
-        noteTimesGuitar[0] = beatMapBlueprint.guitarOffset;
-        float SPB = 60.0f / BPM;
-        float runningTotal = noteTimesGuitar[0];
-        for (int i = 1; i < numNotesGuitar; i++)
+        if (numNotesGuitar > 0)
         {
-            runningTotal += SPB * beatMapBlueprint.noteLengthsGuitar[i - 1];
-            noteTimesGuitar[i] = runningTotal;
+            noteTimesGuitar = new float[numNotesGuitar];
+            noteTimesGuitar[0] = beatMapBlueprint.guitarOffset;
+            float SPB = 60.0f / BPM;
+            float runningTotal = noteTimesGuitar[0];
+            for (int i = 1; i < numNotesGuitar; i++)
+            {
+                runningTotal += SPB * beatMapBlueprint.noteLengthsGuitar[i - 1];
+                noteTimesGuitar[i] = runningTotal;
+            }
         }
 
         // create noteTimesDrum
-        noteTimesDrum = new float[numNotesDrum];
-        noteTimesDrum[0] = beatMapBlueprint.drumOffset;
-        runningTotal = noteTimesDrum[0];
-        for (int i = 1; i < numNotesDrum; i++)
+        if (numNotesDrum > 0)
         {
-            runningTotal += SPB * beatMapBlueprint.noteLengthsDrum[i - 1];
-            noteTimesDrum[i] = runningTotal;
+            noteTimesDrum = new float[numNotesDrum];
+            noteTimesDrum[0] = beatMapBlueprint.drumOffset;
+            float SPB = 60.0f / BPM;
+            float runningTotal = noteTimesDrum[0];
+            for (int i = 1; i < numNotesDrum; i++)
+            {
+                runningTotal += SPB * beatMapBlueprint.noteLengthsDrum[i - 1];
+                noteTimesDrum[i] = runningTotal;
+            }
         }
     }
 
