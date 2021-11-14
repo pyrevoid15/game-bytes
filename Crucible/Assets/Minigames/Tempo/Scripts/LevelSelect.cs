@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -41,8 +39,8 @@ public int selected = 0; // index of selected button (0 start, 1 settings)
                 LevelState.beatMapFilename = "Tempo/Beatmaps/Intermediate";
                 LevelState.songFilename = "Tempo/Songs/Intermediate";
             } else if (selected == 2) {
-                LevelState.beatMapFilename = "Tempo/Beatmaps/Click Track";
-                LevelState.songFilename = "Tempo/Songs/Click Track";
+                LevelState.beatMapFilename = "Tempo/Beatmaps/Expert";
+                LevelState.songFilename = "Tempo/Songs/Expert";
             }
             PlayGame();
         }

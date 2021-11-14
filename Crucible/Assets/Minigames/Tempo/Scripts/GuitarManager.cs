@@ -92,7 +92,7 @@ public class GuitarManager : MonoBehaviour
             recentlyMoved = true;
         }
 
-        if (recentlyPressed && (Time.time - lastBtnPress >= 0.05f))
+        if (recentlyPressed && (Time.time - lastBtnPress >= 0.03f))
         {
             // double press timer elapsed, single press is registered
             processScore(frets[currentFret].strumFret(false));
