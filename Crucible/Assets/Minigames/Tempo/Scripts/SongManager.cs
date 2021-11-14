@@ -31,11 +31,15 @@ public class SongManager : MonoBehaviour
         initialPause = 3f;
         startTime = (float)AudioSettings.dspTime + initialPause;
         endTime = beatMap.songTime;
-        calibration = -0.30f; // higher value means later song play back (i.e. notes appear "earlier")
+        calibration = -0.27f; // higher value means later song play back (i.e. notes appear "earlier")
         song = gameObject.GetComponent<AudioSource>();
         song.clip = Resources.Load<AudioClip>(LevelState.songFilename);
         song.PlayScheduled(startTime + calibration);
 
+        Score.player1Score = 0;
+        Score.player2Score = 0;
+        Score.player1Misses = 0;
+        Score.player2Misses = 0;
         Score.player1MaxScore = beatMap.numNotesGuitar * 3;
         Score.player2MaxScore = beatMap.numNotesDrum * 3;
     }
