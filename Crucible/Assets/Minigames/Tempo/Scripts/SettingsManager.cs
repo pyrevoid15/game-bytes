@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingsManager : MonoBehaviour
 {
@@ -17,10 +18,19 @@ public class SettingsManager : MonoBehaviour
     public GameObject[] calibratorTool = new GameObject[3];
     public GameObject eventCap;
 
+    public TextMeshProUGUI t_volume;
+    public TextMeshProUGUI t_m_volume;
+    public TextMeshProUGUI t_calibration;
+    public TextMeshProUGUI t_calibra;
+
+    public Image volume_bar;
+    public Image calibration_bar;
+
     public int masterVolume = 60;
     public static int volume = 60;
     public float calibration = 0.0f;
     public static float calibra = 0.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +54,10 @@ public class SettingsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MinigameInputHelper.IsButton1Down(1))
+        if (MinigameInputHelper.IsButton1Down(1) ||
+            MinigameInputHelper.IsButton2Down(1) ||
+            MinigameInputHelper.IsButton1Down(2) ||
+            MinigameInputHelper.IsButton2Down(2) )
         {
             if (selected == 1)
             {
@@ -92,9 +105,9 @@ public class SettingsManager : MonoBehaviour
         else
         {
             joystickx1 = MinigameInputHelper.GetHorizontalAxis(1);
-            joystickx2 = 0;
+            joystickx2 = MinigameInputHelper.GetHorizontalAxis(2);
             joysticky1 = MinigameInputHelper.GetVerticalAxis(1);
-            joysticky2 = 0;
+            joysticky2 = MinigameInputHelper.GetVerticalAxis(2);
 
             if (joysticky1 < 0 || joysticky2 < 0) //scroll up
             {
@@ -147,6 +160,7 @@ public class SettingsManager : MonoBehaviour
                 returnButtn.GetComponent<Button>().Select();
             }
         }
+
         if (cooldown2 > 0)
         {
             if (side == "left")
@@ -174,6 +188,12 @@ public class SettingsManager : MonoBehaviour
 
             cooldown2 -= Time.deltaTime;
         }
+
+        t_calibration.text = "Delay: " + (Mathf.Floor(calibration*100)/100).ToString();
+        calibration_bar.fillAmount = calibration;
+        t_m_volume.text = "Master Volume: " + masterVolume.ToString();
+        volume_bar.fillAmount = ((float)masterVolume)/100;
+        
 
     }
 
