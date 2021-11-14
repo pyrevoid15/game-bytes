@@ -3,9 +3,9 @@
 	"songTime": 18,
 	"approachTimeDrum": 1.0,
 	"approachTimeGuitar": 1.5,
-	"excellentWindow": 0.2,
-	"goodWindow": 0.3,
-	"badWindow": 0.5,
+	"excellentWindow": 0.05,
+	"goodWindow": 0.09,
+	"badWindow": 0.13,
 	"guitarOffset": 0,
 	"drumOffset": 0,
 	"noteLengthsDrum":

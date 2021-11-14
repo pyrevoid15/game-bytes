@@ -4,20 +4,21 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-public int selected = 0; // index of selected button (0 start, 1 settings)
-
+    public int selected = 0; // index of selected button (0 start, 1 settings)
     public float coolDown = 0.3f; // separate the movements of the joystick
     public GameObject play;
     public GameObject settings;
 
+
     GameObject myEventSystem;
 
-    public GameObject[] buttons = new GameObject[4];
+    private GameObject[] buttons = new GameObject[5];
     void Start(){
         buttons[0] = GameObject.Find("Beginner");
         buttons[1] = GameObject.Find("Intermediate");
         buttons[2] = GameObject.Find("Expert");
         buttons[3] = GameObject.Find("Back");
+        buttons[4] = GameObject.Find("Click Track");
         myEventSystem = GameObject.Find("EventSystem");
 
     }
@@ -41,6 +42,10 @@ public int selected = 0; // index of selected button (0 start, 1 settings)
             } else if (selected == 2) {
                 LevelState.beatMapFilename = "Tempo/Beatmaps/Expert";
                 LevelState.songFilename = "Tempo/Songs/Expert";
+            } else if (selected == 4)
+            {
+                LevelState.beatMapFilename = "Tempo/Beatmaps/Click Track";
+                LevelState.songFilename = "Tempo/Songs/Click Track";
             }
             PlayGame();
         }
@@ -55,22 +60,13 @@ public int selected = 0; // index of selected button (0 start, 1 settings)
             bool joystick_up = joystick1 > 0 || joystick2 > 0;
             bool joystick_down = joystick1 < 0 || joystick2 < 0;
 
-            // select the next item based on up or down, wrap if first or last
-            if(selected == 0 && joystick_up)
+            if (joystick_up)
             {
-                selected = 3;
+                selected = (selected + 4) % 5;
                 coolDown = 0.3f;
-            } else if(selected == 3 && joystick_down)
+            } else if (joystick_down)
             {
-                selected = 0;
-                coolDown = 0.3f;
-            } else if(joystick_down)
-            {
-                selected++;
-                coolDown = 0.3f;
-            } else if(joystick_up)
-            {
-                selected--;
+                selected = (selected + 1) % 5;
                 coolDown = 0.3f;
             }
 

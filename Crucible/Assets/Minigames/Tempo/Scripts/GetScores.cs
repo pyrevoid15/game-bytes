@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GetScores : MonoBehaviour
 {
@@ -17,8 +18,15 @@ public class GetScores : MonoBehaviour
     void Start()
     {
         // getting player1's scores
+
         int total1 = Score.player1Score;
         int max1 = Score.player1MaxScore;
+
+        if (max1 == 0)
+        {
+            total1 = 1;
+            max1 = 1;
+        }
 
         float percent = (float)total1/max1*100;
         percent = Mathf.Round(percent);
@@ -31,6 +39,12 @@ public class GetScores : MonoBehaviour
         // getting player 2's scores
         int total2 = Score.player2Score;
         int max2 = Score.player2MaxScore;
+
+        if (max2 == 0)
+        {
+            total2 = 1;
+            max2 = 1;
+        }
 
         float percent2 = (float)total2/max2*100;
         percent2 = Mathf.Round(percent2);
@@ -49,6 +63,10 @@ public class GetScores : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (MinigameInputHelper.IsButton1Up(1) || MinigameInputHelper.IsButton1Up(2) ||
+            MinigameInputHelper.IsButton2Up(1) || MinigameInputHelper.IsButton2Up(2))
+        {
+            SceneManager.LoadScene("Menu_Scene");
+        }
     }
 }
