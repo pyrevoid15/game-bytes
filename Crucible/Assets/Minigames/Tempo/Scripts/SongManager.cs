@@ -31,8 +31,10 @@ public class SongManager : MonoBehaviour
         initialPause = 3f;
         startTime = (float)AudioSettings.dspTime + initialPause;
         endTime = beatMap.songTime;
-        calibration = -0.27f; // higher value means later song play back (i.e. notes appear "earlier")
+        //calibration = -0.27f; // higher value means later song play back (i.e. notes appear "earlier")
+        calibration = SettingsManager.calibra;
         song = gameObject.GetComponent<AudioSource>();
+        song.volume = SettingsManager.volume / 100.0f;
         song.clip = Resources.Load<AudioClip>(LevelState.songFilename);
         song.PlayScheduled(startTime + calibration);
 

@@ -26,9 +26,15 @@ public class MainMenuScript : MonoBehaviour
            MinigameInputHelper.IsButton2Up(1) || 
            MinigameInputHelper.IsButton2Up(2)
             ){
-            if(selected == 0){
+            if (selected == 0)
+            {
                 LoadLevelMenu();
-            } else if (selected == 2)
+            }
+            else if (selected == 1)
+            {
+                LoadSettings();
+            }
+            else if (selected == 2)
             {
                 Application.Quit();
             }
@@ -46,20 +52,6 @@ public class MainMenuScript : MonoBehaviour
                 selected = (selected + 1) % 3;
                 coolDown = 0.3f;
             }
-            /*
-    
-            
-            if(((joystick1 > 0 || joystick2 > 0 ||
-                joystick1 < 0 || joystick2 < 0) && selected == 0))
-            {
-                    selected = 1;
-                    coolDown = 0.3f;
-            } else if(((joystick1 > 0 || joystick2 > 0 ||
-                        joystick1 < 0 || joystick2 < 0) && selected == 1))
-            {
-                selected = 0;
-                coolDown = 0.3f;
-            }*/
         }
 
         
@@ -91,5 +83,9 @@ public class MainMenuScript : MonoBehaviour
         
     }
 
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
 
 }
