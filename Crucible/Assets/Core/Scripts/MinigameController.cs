@@ -12,7 +12,7 @@ public class MinigameController : UnitySingleton<MinigameController>
     [SerializeField] private GameSettings Settings = null;
 
     [Header("Gameplay Info")]
-    [Range(5.0f, 180.0f)] public float DurationSeconds = 60.0f;
+    [Range(5.0f, 1000000000000.0f)] public float DurationSeconds = 60.0f;
     public bool WinOnTimeEnd;
     public bool TimerPaused = false;
 
